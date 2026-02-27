@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <!-- Primary Meta Tags -->
+    <title>Abaixo Assinado</title>
+
+    <meta name="Author" content="Gustavo Gonzaga">
+    <meta name="robots" content="index, follow" />
+
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.14/dist/lenis.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+
+
+</head>
+<body id="body" class="smooth-scroll-wrapper">
+    <header class="header" id="home">
+        <div class="blush um"></div>
+        <div class="blush dois"></div>
+
+            <div class="content">
+                <div class="text">
+                    <h1 class="quemama" data-aos="fade-up">QUEM AMA</h1>
+                    <h1 class="quem" data-aos="fade-up">QUEM</h1>
+                    <h1 class="ama" data-aos="fade-up">AMA</h1>
+                    <h1 class="educa" data-aos="fade-up">EDUCA</h1>
+                </div>
+
+                <div data-aos="fade-up" class="box">
+                    <p class="cta-sub">Diga NÃO para as PROIBIÇÕES das ferramentas de Adestramento</p>
+                    <a href="#form"><button class="button">Acesse o Abaixo Assinado</button></a>
+                </div>
+            </div>
+        
+        <img class="bg mobile" data-src="./assets/baixo assinado mobile.avif" alt="" aria-hidden="true" decoding="async">
+        <img class="bg desktop" data-src="./assets/baixo assinado desktop.avif" alt="" aria-hidden="true" decoding="async">
+
+        <img class="bg mobile sf" data-src="./assets/baixo assinado mobile sf.avif" alt="" aria-hidden="true" decoding="async">
+        <img class="bg desktop sf" data-src="./assets/baixo assinado desktop sf.avif" alt="" aria-hidden="true" decoding="async">
+
+        <script>
+        (() => {
+        const mq = window.matchMedia('(min-width: 1080px)');
+
+        const load = (img) => {
+            const src = img.getAttribute('data-src');
+            if (src && img.getAttribute('src') !== src) img.setAttribute('src', src);
+        };
+
+        const unload = (img) => {
+            img.removeAttribute('src');
+            img.removeAttribute('srcset');
+        };
+
+        const apply = () => {
+            const isDesktop = mq.matches;
+
+            document.querySelectorAll('#home img.bg.mobile').forEach(img =>
+            isDesktop ? unload(img) : load(img)
+            );
+
+            document.querySelectorAll('#home img.bg.desktop').forEach(img =>
+            isDesktop ? load(img) : unload(img)
+            );
+        };
+
+        apply();
+        if (mq.addEventListener) mq.addEventListener('change', apply);
+        else mq.addListener(apply); // fallback
+        })();
+        </script>
+
+    </header>
+
+    <section id="form">
+        <div class="wrapper">
+            <div class="content">
+                <div class="video">
+                    <img src="./assets/capavideo.avif" alt="">
+
+                    <p>Vote para derrubar o projeto de lei XX que propôs a proibição das ferramentas de adestramento e multas para quem usar ou importar.</p>
+                </div>
+
+                <div class="box">
+                    <div class="form">
+                        <form id="leadForm" class="lead-form" autocomplete="on">
+                                <div class="field">
+                                <label for="nome">Nome</label>
+                                <input
+                                id="nome"
+                                name="nome"
+                                type="text"
+                                placeholder="Seu nome completo"
+                                required
+                                minlength="2"
+                                autocomplete="name"
+                                />
+                                </div>
+
+                                <div class="field">
+                                    <label for="cpf">CPF</label>
+                                    <input
+                                    id="cpf"
+                                    name="cpf"
+                                    type="text"
+                                    placeholder="000.000.000-00"
+                                    inputmode="numeric"
+                                    required
+                                    maxlength="14"
+                                    />
+                                </div>
+
+                                <div class="field">
+                                    <label for="email">E-mail</label>
+                                    <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    placeholder="seuemail@gmail.com"
+                                    required
+                                    autocomplete="email"
+                                    />
+                                </div>
+
+                                <div class="field">
+                                    <label for="telefone">Telefone</label>
+                                    <input
+                                    id="telefone"
+                                    name="telefone"
+                                    type="tel"
+                                    placeholder="(11) 91234-5678"
+                                    inputmode="numeric"
+                                    autocomplete="tel"
+                                    required
+                                    maxlength="15"
+                                    />
+                                </div>
+
+                            <button type="submit" class="btn-submit">Enviar agora</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+(() => {
+  const form = document.getElementById('leadForm');
+  const tel  = document.getElementById('telefone');
+  const cpf  = document.getElementById('cpf');
+
+  const digitsOnly = (v) => (v || '').replace(/\D/g, '');
+
+  function formatPhone(d) {
+    d = d.slice(0, 11);
+
+    // 10 dígitos: (11) 1234-5678
+    if (d.length <= 10) {
+      const a = d.slice(0, 2);
+      const b = d.slice(2, 6);
+      const c = d.slice(6, 10);
+      let out = '';
+      if (a) out += '(' + a;
+      if (a.length === 2) out += ') ';
+      if (b) out += b;
+      if (c) out += '-' + c;
+      return out;
+    }
+
+    // 11 dígitos: (11) 91234-5678
+    const a = d.slice(0, 2);
+    const b = d.slice(2, 7);
+    const c = d.slice(7, 11);
+    let out = '';
+    if (a) out += '(' + a;
+    if (a.length === 2) out += ') ';
+    if (b) out += b;
+    if (c) out += '-' + c;
+    return out;
+  }
+
+  function formatCPF(d) {
+    d = d.slice(0, 11);
+    const a = d.slice(0, 3);
+    const b = d.slice(3, 6);
+    const c = d.slice(6, 9);
+    const e = d.slice(9, 11);
+
+    let out = a;
+    if (b) out += '.' + b;
+    if (c) out += '.' + c;
+    if (e) out += '-' + e;
+    return out;
+  }
+
+  tel.addEventListener('input', () => {
+    const d = digitsOnly(tel.value).slice(0, 11);
+    tel.value = formatPhone(d);
+    tel.dataset.digits = d; // útil pro envio ao Sheets depois
+  });
+
+  cpf.addEventListener('input', () => {
+    const d = digitsOnly(cpf.value).slice(0, 11);
+    cpf.value = formatCPF(d);
+    cpf.dataset.digits = d; // útil pro envio ao Sheets depois
+  });
+
+  // validação mínima (opcional, mas ajuda)
+  form.addEventListener('submit', (e) => {
+    const telDigits = digitsOnly(tel.value);
+    const cpfDigits = digitsOnly(cpf.value);
+
+    if (telDigits.length < 10 || telDigits.length > 11) {
+      e.preventDefault();
+      alert('Telefone inválido. Use DDD + número (10 ou 11 dígitos).');
+      tel.focus();
+      return;
+    }
+
+    if (cpfDigits.length !== 11) {
+      e.preventDefault();
+      alert('CPF inválido. Preencha 11 dígitos.');
+      cpf.focus();
+      return;
+    }
+  });
+})();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init(
+            {
+                duration: 1500,
+            }
+        );
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="./script.js?v=4"></script>
+
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script>
+        // Initialize Lenis with options
+        const lenis = new Lenis({
+            smooth: true, // Ativa o scroll suave
+            duration: 1.1, // Define a duração do scroll (maior valor deixa mais lento)
+            easing: (t) => 1 - Math.pow(1 - t, 4), // Função de easing para suavidade
+        });
+
+        // Listen for the scroll event and log the event data
+        lenis.on("scroll", (e) => {
+            console.log(e);
+        });
+
+        // Use requestAnimationFrame to continuously update the scroll
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+    </script>
+</body>
+
+</html>

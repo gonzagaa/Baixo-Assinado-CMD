@@ -1,0 +1,99 @@
+#form {
+    position: relative;
+    overflow: hidden;
+
+    padding-top: 2rem;
+}
+
+#form .video img {
+    width: 100%;
+}
+
+#form p {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#form form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    text-align: left;
+    gap: 2rem;
+
+    width: 100%;
+
+    background: #ffffff0a;
+    border: 1px solid #ffffff32;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+#form .form .field {
+    width: 100%;
+}
+
+#form .form label {
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+#form .form input {
+    margin-top: 1rem;
+    width: 100%;
+
+    background: #ffffff0f;
+    border: 1px solid #ffffff1b;
+    font-size: 1.6rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+#form .form input::placeholder {
+    opacity: .5;
+}
+
+#form .form input:focus {
+    outline: 1px solid #fff;
+} 
+
+@media (min-width: 1080px) {
+    section#form {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
+
+    section#form .content {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 8rem;
+    }
+
+    section#form p {
+    }
+
+    section#form form {
+        padding: 3rem;
+
+        align-items: center;
+    }
+
+    section#form button {
+        padding: 2rem 5.55rem;
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+
+    section#form form .fields {
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+}

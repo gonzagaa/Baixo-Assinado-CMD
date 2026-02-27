@@ -1,0 +1,245 @@
+#home {
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 25;
+
+  transition: all 200ms ease-in-out;
+  margin-bottom: 0;
+
+  height: 100vh;
+}
+
+#home img.bg{
+  position: absolute;
+  inset: 0;            /* top/right/bottom/left = 0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* mantém preenchido bonito */
+  pointer-events: none;
+
+  /* performance + suavidade */
+  will-change: transform;
+  transform-origin: center;
+  animation: bgBreath 18s ease-in-out infinite alternate;
+
+  mask-image: linear-gradient(to bottom, #000 30%, transparent);
+}
+
+/* a de baixo */
+#home img.bg{
+  z-index: -1;
+}
+
+/* a de cima (sem fundo) */
+#home img.bg.sf{
+  z-index: 4;
+  filter: drop-shadow(0 0 20px #000);
+}
+
+/* “respiração” bem lenta + suave */
+@keyframes bgBreath{
+  0%{
+    transform: scale(1) translate3d(0,0,0) rotate(0deg);
+  }
+  50%{
+    transform: scale(1.08) translate3d(-2.2%, -1.4%, 0) rotate(-0.35deg);
+  }
+  100%{
+    transform: scale(1.03) translate3d(2.0%, 1.2%, 0) rotate(0.35deg);
+  }
+}
+/* acessibilidade: respeita quem não quer animação */
+@media (prefers-reduced-motion: reduce){
+  #home img.bg{ animation: none; }
+}
+
+#home img.bg.desktop {
+  display: none;
+}
+
+
+
+#home .text {
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#home h1 {
+  color: #fff;
+
+  font-family: "Bebas Neue", sans-serif;
+}
+
+#home h1.quemama {
+  margin-top: 4%;
+  font-size: 10rem;
+}
+
+#home h1.educa {
+  font-size: 16.5rem;
+
+  margin-top: -13%;
+}
+
+#home h1.quem,
+#home h1.ama {
+  display: none;
+}
+
+#home .box {
+  position: relative;
+  z-index: 999;
+
+  padding-inline: 5%;
+  margin-top: 60%;
+}
+
+#home .box p {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 600;
+
+   text-shadow:
+    0 0px 30px rgb(0, 0, 0),  /* bem desfocado (halo grande) */
+    0 0px 20px rgb(0, 0, 0);  /* reforço médio pra leitura */
+}
+
+
+
+#home .box a button {
+  margin-top: 1rem;
+}
+
+@media (min-width: 1080px) {
+  header#home {
+    background: #000000;
+    justify-content: center;
+    position: relative;
+
+    height: auto;
+    z-index: 1;
+
+    border-radius: 0;
+    box-shadow: initial;
+
+    height: 100vh;
+  }
+
+  header#home img.bg {
+    mask-image: linear-gradient(to bottom, #000 60%, transparent);
+  }
+
+  header#home img.bg.mobile {
+    display: none;
+  }
+
+  header#home img.bg.desktop {
+    display: inherit;
+    animation: none;
+    animation: bgBreath 38s ease-in-out infinite alternate;
+  }
+
+  header#home .content h1 {
+    font-weight: 500;
+  }
+
+  header#home .content h1.quemama {
+    display: none;
+  }
+
+  header#home h1.quem,
+  header#home h1.ama {
+    display: inherit;
+  }
+  
+
+  header#home h1.quem {
+    font-size: 23rem;
+
+    margin-left: -80%;
+    margin-top: -10%;
+
+  }
+
+  header#home h1.ama {
+    font-size: 23rem;
+    margin-left: -108%;
+
+    margin-top: -13%;
+  }
+
+  header#home h1.educa {
+    font-size: 23rem;
+    margin-top: -13%;
+    margin-left: -80%;
+  }
+
+  /* 1) escolhe UM gradient (troca o --heroTitleGradient) */
+:root{
+  /* PREMIUM / CHAMPAGNE (recomendado pra essa foto) */
+  --heroTitleGradient: linear-gradient(
+    90deg,
+    #FFFFFF 0%,
+    #ffffffa6 18%,
+    #FFFFFF 38%,
+    #E9F4FF 60%,
+    #FFFFFF 82%,
+    #ffffff 100%
+  );
+
+  /* se quiser mais “metal/chrome”, usa esse:
+  --heroTitleGradient: linear-gradient(90deg, #FFFFFF 0%, #DADADA 18%, #FFFFFF 35%, #BEBEBE 55%, #FFFFFF 75%, #DADADA 100%);
+  */
+
+  /* se quiser mais “dourado forte”, usa esse:
+  --heroTitleGradient: linear-gradient(90deg, #FFFFFF 0%, #FFE7B0 22%, #FFFFFF 42%, #FFC86A 65%, #FFFFFF 85%);
+  */
+}
+
+  /* 2) aplica no texto */
+  header#home h1.quem,
+  header#home h1.ama,
+  header#home h1.educa{
+    color: transparent;
+    background-image: var(--heroTitleGradient);
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* faz “saltar” em cima da foto */
+    }
+
+    header#home .box {
+      margin-top: 0;
+      padding-inline: 0;
+
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      text-align: left;
+
+      margin-left: -20%;
+      margin-top: -5%;
+    }
+
+    header#home .box p {
+      width: 70%;
+      font-size: 2.7rem;
+
+      padding-left: 1rem;
+      border-left: 3px solid #cd1a1a;
+      margin-left: 1px;
+    }
+}
+
+@media (min-width: 1700px) {
+
+}

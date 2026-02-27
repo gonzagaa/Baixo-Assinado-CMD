@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: "Sora", sans-serif;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --color-text: #e0e1dd;
+    --azul-1: #1e2c46;
+    --azul-2: #141b24;
+    --azul-3: #0e141e;
+    --azul-4: #04090e;
+    --bg: #e0e1dd;
+
+    --nav-height: 7.2rem;
+
+    --bricolagE: "Bricolage Grotesque", sans-serif;
+}  
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+  }
+
+  body {
+    background: #000;
+    overflow-x: hidden;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  ::selection {
+  color: #000000;
+  background: #d8d8d8;
+}
+
+ section {
+    padding-block: 3rem;
+  }
+
+  .wrapper {
+    width: min(50rem, 100%);
+    margin-inline: auto;
+  
+    padding-inline: 2.4rem;
+  }
+
+  @media (min-width: 1080px) {
+    .wrapper {
+      width: min(100rem, 100%);
+    }
+
+    section {
+      padding-block: 4rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .wrapper {
+      width: min(110rem, 100%);
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .wrapper {
+      width: min(120rem, 100%);
+    }
+
+    :root {
+      font-size: 65%;
+    }
+  }
+
+  @media (min-width: 1700px) {
+    .wrapper {
+      width: min(130rem, 100%);
+    }
+  }
+  
+ 
+
+  /*====  scrollbar ============================ */
+::-webkit-scrollbar {
+  width: .6rem;
+  background-color: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  width: .6rem;
+  background: var(--secondary-color);
+  border-radius: 1rem;
+}
+
+  /* buttonWhatsapp =================== */
+#buttonWhatsapp {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 100;
+  
+    opacity: 0;
+    visibility: hidden;
+  
+    transform: translateY(100%);
+    transition: all 300ms ease-in-out;
+  }
+  
+  #buttonWhatsapp.show {
+    opacity: 1;
+    visibility: visible;
+  
+    transform: translateY(0);
+  }
+  
+  #buttonWhatsapp img {
+    width: 6rem;
+    transition: all 300ms ease-in-out;
+  }
+  
+  #buttonWhatsapp svg:hover {
+    transform: scale(1.1);
+  }
+
+.custom-shape-divider-bottom-1758742448 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 10;
+}
+
+.custom-shape-divider-bottom-1758742448 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 44px;
+}
+
+.custom-shape-divider-bottom-1758742448 .shape-fill {
+    fill: #FFFFFF;
+}
+
+.custom-shape-divider-top-1758742485 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 10;
+}
+
+.custom-shape-divider-top-1758742485 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 44px;
+}
+
+.custom-shape-divider-top-1758742485 .shape-fill {
+    fill: #FFFFFF;
+}
