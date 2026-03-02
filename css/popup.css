@@ -10,15 +10,29 @@
 .popup.is-open{ display: grid; }
 
 .popup-card{
-  background: #fff;
-  padding: 18px 18px;
+  background: #000000;
+  padding: 2.5rem;
   border-radius: 14px;
   min-width: 280px;
   text-align: center;
 }
 
+.popup-card h2 {
+    background: linear-gradient(135deg, #5b0a12, #ff2d2d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 5rem;
+    margin-bottom: .5rem;
+}
+
+.popup-card p {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
 .popup-card button{
-  margin-top: 12px;
+  margin-top: 3rem;
   padding: 10px 14px;
   border-radius: 10px;
   border: none;
