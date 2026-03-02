@@ -62,6 +62,10 @@
     outline: 1px solid #fff;
 } 
 
+#form iframe {
+    width: 100%;
+}
+
 @media (min-width: 1080px) {
     section#form {
         padding-top: 10rem;
