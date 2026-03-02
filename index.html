@@ -164,6 +164,13 @@
         </div>
     </section>
 
+    <div id="successPopup" class="popup" aria-hidden="true">
+    <div class="popup-card">
+        <p>Cadastro enviado com sucesso!</p>
+        <button id="closePopup" type="button">Fechar</button>
+    </div>
+    </div>
+
     <script>
 (() => {
   const form = document.getElementById('leadForm');
@@ -243,6 +250,59 @@
       alert('CPF inválido. Preencha 11 dígitos.');
       cpf.focus();
       return;
+    }
+  });
+})();
+    </script>
+
+    <script>
+(() => {
+  const form = document.getElementById("leadForm");
+  const popup = document.getElementById("successPopup");
+  const closeBtn = document.getElementById("closePopup");
+
+  const openPopup = () => {
+    popup.classList.add("is-open");
+    popup.setAttribute("aria-hidden", "false");
+  };
+
+  const closePopup = () => {
+    popup.classList.remove("is-open");
+    popup.setAttribute("aria-hidden", "true");
+  };
+
+  closeBtn.addEventListener("click", closePopup);
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) closePopup();
+  });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      nome: document.getElementById("nome").value.trim(),
+      telefone: document.getElementById("telefone").value.trim(), // mascarado
+      email: document.getElementById("email").value.trim(),
+      cpf: document.getElementById("cpf").value.trim() // mascarado
+    };
+
+    try {
+      const resp = await fetch("SEU_ENDPOINT_VERCEL", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await resp.json().catch(() => ({}));
+
+      if (!resp.ok || !data.ok) {
+        throw new Error(data.error || "Erro ao enviar.");
+      }
+
+      openPopup();
+      form.reset();
+    } catch (err) {
+      alert("Não foi possível enviar agora. Tente novamente.\n\n" + (err.message || ""));
     }
   });
 })();

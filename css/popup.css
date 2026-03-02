@@ -1,0 +1,26 @@
+.popup{
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(0,0,0,.55);
+  z-index: 9999;
+}
+
+.popup.is-open{ display: grid; }
+
+.popup-card{
+  background: #fff;
+  padding: 18px 18px;
+  border-radius: 14px;
+  min-width: 280px;
+  text-align: center;
+}
+
+.popup-card button{
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
